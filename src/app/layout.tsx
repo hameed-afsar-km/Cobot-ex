@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, JetBrains_Mono, Manrope } from "next/font/google";
+import { Anton, Bricolage_Grotesque, JetBrains_Mono, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
 
 import "./globals.css";
@@ -8,6 +8,12 @@ const anton = Anton({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-anton",
+  display: "swap",
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-hero",
   display: "swap",
 });
 
@@ -60,7 +66,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${manrope.variable} ${jetbrains.variable}`}
+      className={`${anton.variable} ${bricolage.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
       <body className="min-h-svh bg-cream text-ink antialiased">
         <a

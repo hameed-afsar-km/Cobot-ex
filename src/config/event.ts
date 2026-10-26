@@ -57,9 +57,23 @@ export const eventConfig = {
         "hero-image.png",
       ],
     },
+    heroMobile: {
+      label: "COBOT-EX mobile event hero",
+      alt: "COBOT-EX inter-college technology event",
+      candidates: [
+        "mob.jpeg",
+        "mob.jpg",
+        "mob.webp",
+        "mob.png",
+        "hero-mobile.jpeg",
+        "hero-mobile.jpg",
+        "hero-mobile.webp",
+        "hero-mobile.png",
+      ],
+    },
     logo: {
-      label: "Technical club logo",
-      alt: "Technical club logo",
+      label: "COBOT-EX logo",
+      alt: "COBOT-EX logo",
       candidates: [
         "logo.png",
         "logo.svg",

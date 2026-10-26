@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Navbar logoSrc={assets.logo} />
       <main id="main">
-        <Hero heroSrc={assets.hero} />
+        <Hero heroSrc={assets.hero} mobileHeroSrc={assets.heroMobile} />
         <Ticker />
         <Competitions />
         <Brochure qrSrc={assets.qr} />

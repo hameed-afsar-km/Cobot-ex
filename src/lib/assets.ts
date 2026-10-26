@@ -9,6 +9,7 @@ type AssetSlot = {
 
 export type ResolvedAssets = {
   hero: string | null;
+  heroMobile: string | null;
   logo: string | null;
   qr: string | null;
 };
@@ -28,6 +29,7 @@ function resolveAsset(slot: AssetSlot): string | null {
 export function getAssets(): ResolvedAssets {
   return {
     hero: resolveAsset(eventConfig.assets.hero),
+    heroMobile: resolveAsset(eventConfig.assets.heroMobile),
     logo: resolveAsset(eventConfig.assets.logo),
     qr: resolveAsset(eventConfig.assets.qr),
   };
