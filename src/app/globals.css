@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #f4ecdf;
+  --color-paper: #fffaf1;
+  --color-sand: #eaddc8;
+  --color-sand-deep: #dfccb0;
+  --color-ink: #1a0d0b;
+  --color-night: #140b09;
+  --color-night-soft: #1f120f;
+  --color-crimson: #b5141b;
+  --color-crimson-bright: #dd2f35;
+  --color-crimson-deep: #870e14;
+  --color-gold: #c9a45c;
+  --color-gold-bright: #e8cb85;
+  --color-gold-soft: #efd9a8;
+  --color-line: #d9c8b1;
+  --color-line-bright: #bfa98a;
+  --color-mist: #6f5e53;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-anton), "Arial Narrow", sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  --breakpoint-xs: 26rem;
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  background: var(--color-cream);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-crimson);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold-bright);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px var(--color-ink);
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid CanvasText;
+    box-shadow: none;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(26 13 11 / 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(26 13 11 / 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-grid-fine {
+    background-image:
+      linear-gradient(to right, rgb(26 13 11 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(26 13 11 / 0.045) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-grid-cream {
+    background-image:
+      linear-gradient(to right, rgb(255 250 241 / 0.09) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 250 241 / 0.09) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-grid-fine-cream {
+    background-image:
+      linear-gradient(to right, rgb(255 250 241 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 250 241 / 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .mask-radial {
+    -webkit-mask-image: radial-gradient(
+      ellipse at center,
+      black 25%,
+      transparent 72%
+    );
+    mask-image: radial-gradient(ellipse at center, black 25%, transparent 72%);
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+
+  .mask-fade-r {
+    -webkit-mask-image: linear-gradient(to right, black 35%, transparent 100%);
+    mask-image: linear-gradient(to right, black 35%, transparent 100%);
+  }
+
+  .text-outline-ink {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(26 13 11 / 0.16);
+  }
+
+  .text-outline-cream {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(255 250 241 / 0.22);
+  }
+
+  .text-outline-gold {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(201 164 92 / 0.6);
+  }
+
+  .text-outline-crimson {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(181 20 27 / 0.4);
+  }
+
+  .hairline-x {
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-line-bright),
+      transparent
+    );
+    height: 1px;
+  }
+
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgb(255 250 241 / 0.055) 0px,
+      rgb(255 250 241 / 0.055) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  }
+
+  .hud-clip {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 1.1rem) 0,
+      100% 1.1rem,
+      100% 100%,
+      1.1rem 100%,
+      0 calc(100% - 1.1rem)
+    );
+  }
+
+  .text-shadow-ink {
+    text-shadow: 0 2px 35px rgb(20 11 9 / 0.55);
+  }
+
+  .animate-ticker {
+    animation: ticker 34s linear infinite;
+  }
+
+  .animate-dash {
+    animation: dash 16s linear infinite;
+  }
+
+  .animate-blink {
+    animation: blink 1.8s steps(1) infinite;
+  }
+
+  .animate-scan {
+    animation: scan 4.5s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 7s ease-in-out infinite;
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2.8s ease-out infinite;
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -240;
+  }
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.18;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(120%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.78);
+    opacity: 0.55;
+  }
+  80%,
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-cream);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-sand-deep);
+    border: 3px solid var(--color-cream);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-line-bright);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
