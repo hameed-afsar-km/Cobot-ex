@@ -31,7 +31,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "COBOT-EX â€” Inter-College Technology Event",
+  title: "COBOT-EX | Inter-College Technology Event",
   description:
     "An open platform for students to showcase original, practical and impactful technology-based solutions to real-world problems. Build. Solve. Compete.",
   applicationName: "COBOT-EX",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "Chennai",
   ],
   openGraph: {
-    title: "COBOT-EX â€” Inter-College Technology Event",
+    title: "COBOT-EX | Inter-College Technology Event",
     description:
       "Build. Solve. Compete. A project expo and hackathon for students solving real-world problems through technology.",
     type: "website",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "COBOT-EX â€” Inter-College Technology Event",
+    title: "COBOT-EX | Inter-College Technology Event",
     description:
       "Build. Solve. Compete. A project expo and hackathon for students solving real-world problems through technology.",
   },

@@ -1,4 +1,4 @@
-﻿import { QrCode, ScanLine } from "lucide-react";
+import { QrCode, ScanLine } from "lucide-react";
 import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -19,19 +19,19 @@ export function Brochure({ qrSrc }: BrochureProps) {
   return (
     <section
       id="brochure"
-      className="relative scroll-mt-20 overflow-hidden border-b border-line bg-cream py-20 sm:py-24 lg:flex lg:h-[100svh] lg:items-center lg:py-12"
+      className="relative scroll-mt-20 overflow-hidden border-b border-line bg-cream py-14 sm:py-20 lg:flex lg:h-[100svh] lg:items-center lg:py-12"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-grid-fine opacity-70 mask-radial" />
         <CircuitLines className="absolute inset-0 size-full text-crimson/10 opacity-50" />
-        <div className="absolute -left-32 top-1/2 size-[26rem] -translate-y-1/2 rounded-full bg-gold-soft/60 blur-[110px]" />
+        <div className="absolute -left-16 sm:-left-32 top-1/2 size-[16rem] sm:size-[26rem] -translate-y-1/2 rounded-full bg-gold-soft/60 blur-[90px] sm:blur-[110px]" />
         <RobotMark className="absolute -left-16 bottom-0 hidden h-[28rem] w-auto text-crimson/10 xl:block" />
-        <span className="absolute -right-8 top-8 select-none font-display text-[18rem] leading-none text-outline-ink opacity-60">
+        <span className="absolute -right-4 sm:-right-8 top-8 select-none font-display text-[10rem] sm:text-[18rem] leading-none text-outline-ink opacity-40 sm:opacity-60 pointer-events-none">
           03
         </span>
       </div>
 
-      <div className="container-page relative grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
+      <div className="container-page relative grid items-center gap-10 sm:gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
         <Reveal>
           <div className="flex flex-wrap items-center justify-between gap-3">
             <SectionLabel index="03" tone="crimson">
@@ -42,7 +42,7 @@ export function Brochure({ qrSrc }: BrochureProps) {
 
           <ScrollText
             as="h2"
-            className="mt-6 font-display text-[clamp(2.85rem,6.4vw,5.5rem)] uppercase leading-[0.88] text-ink"
+            className="mt-5 sm:mt-6 font-display text-[clamp(2.35rem,7vw,5.5rem)] uppercase leading-[0.9] text-ink"
             lines={[
               { text: "Scan for" },
               { text: "Brochure", className: "text-crimson" },

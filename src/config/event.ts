@@ -151,5 +151,4 @@ export const navLinks = [
   { label: "Expo", href: "#expo" },
   { label: "Hackathon", href: "#hackathon" },
   { label: "Brochure", href: "#brochure" },
-  { label: "Event Details", href: "#details" },
 ] as const;

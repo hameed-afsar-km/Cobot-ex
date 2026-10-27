@@ -4,7 +4,6 @@ import { SplashScreen } from "@/components/ui/SplashScreen";
 import { Ticker } from "@/components/ui/Ticker";
 import { Brochure } from "@/components/sections/Brochure";
 import { Competitions } from "@/components/sections/Competitions";
-import { EventDetails } from "@/components/sections/EventDetails";
 import { Hero } from "@/components/sections/Hero";
 import { getAssets } from "@/lib/assets";
 
@@ -15,14 +14,33 @@ export default function Home() {
     <>
       <SplashScreen logoSrc={assets.logo} />
       <Navbar logoSrc={assets.logo} />
-      <main id="main">
-        <Hero heroSrc={assets.hero} mobileHeroSrc={assets.heroMobile} />
-        <Ticker />
-        <Competitions />
-        <Brochure qrSrc={assets.qr} />
-        <EventDetails />
+
+      <main id="main" className="relative w-full overflow-x-hidden">
+        {/* Section 1: Hero with live background parallax & loop elements */}
+        <div className="relative z-10 w-full overflow-hidden">
+          <Hero heroSrc={assets.hero} mobileHeroSrc={assets.heroMobile} />
+        </div>
+
+        {/* Section 2: Continuous Ticker */}
+        <div className="relative z-[15] w-full">
+          <Ticker />
+        </div>
+
+        {/* Section 3: Competitions (Expo & Hackathon) — natural smooth scroll, ZERO stickiness */}
+        <div className="relative z-[20] w-full">
+          <Competitions />
+        </div>
+
+        {/* Section 4: Brochure */}
+        <div className="relative z-[30] w-full">
+          <Brochure qrSrc={assets.qr} />
+        </div>
       </main>
-      <Footer logoSrc={assets.logo} />
+
+      {/* Footer — 70vh neat minimal finish */}
+      <div className="relative z-[40] w-full">
+        <Footer logoSrc={assets.logo} />
+      </div>
     </>
   );
 }
