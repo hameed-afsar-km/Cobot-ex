@@ -91,8 +91,8 @@ export function Competitions() {
               ))}
             </div>
 
-            <div className="mt-6 sm:mt-8 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center">
-              <ButtonLink href={expo.url} external variant="gold">
+            <div className="mt-6 sm:mt-8 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center w-full">
+              <ButtonLink href={expo.url} external variant="gold" className="w-full sm:w-auto text-center justify-center">
                 {expo.cta}
               </ButtonLink>
               <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-paper/60">
@@ -178,8 +178,8 @@ export function Competitions() {
               </p>
             </div>
 
-            <div className="mt-6 sm:mt-8 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center">
-              <ButtonLink href={hackathon.url} external variant="crimson">
+            <div className="mt-6 sm:mt-8 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center w-full">
+              <ButtonLink href={hackathon.url} external variant="crimson" className="w-full sm:w-auto text-center justify-center">
                 {hackathon.cta}
               </ButtonLink>
               <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-ink/55">

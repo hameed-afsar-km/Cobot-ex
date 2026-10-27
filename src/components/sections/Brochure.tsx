@@ -71,12 +71,13 @@ export function Brochure({ qrSrc }: BrochureProps) {
             <ScanFact label="Status" value="Ready" />
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 w-full">
             <ButtonLink
               href={eventConfig.brochure.url}
               variant="crimson"
               size="md"
               external
+              className="w-full sm:w-auto text-center justify-center"
             >
               Open brochure
             </ButtonLink>

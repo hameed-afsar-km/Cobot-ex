@@ -61,29 +61,29 @@ export function Countdown({
       <div
         role="timer"
         aria-label="Countdown to COBOT-EX"
-        className="flex items-center gap-1.5 sm:gap-2.5"
+        className="flex items-center gap-1 sm:gap-2.5"
       >
         {units.map((unit, index) => (
-          <div key={unit.key} className="flex items-center gap-1.5 sm:gap-2.5">
+          <div key={unit.key} className="flex items-center gap-1 sm:gap-2.5">
             {index > 0 && (
               <span
                 aria-hidden="true"
-                className="font-mono text-sm font-bold text-crimson-bright/70 animate-pulse"
+                className="font-mono text-xs sm:text-sm font-bold text-crimson-bright/70 animate-pulse"
               >
                 :
               </span>
             )}
-            <div className="group relative flex min-w-[3.5rem] flex-col items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/60 px-2 py-1.5 backdrop-blur-md shadow-[0_8px_25px_rgba(0,0,0,0.6)] ring-1 ring-white/5 transition-all duration-300 hover:border-gold/40 hover:bg-black/75 sm:min-w-[4.5rem] sm:px-3 sm:py-2">
+            <div className="group relative flex min-w-[2.85rem] xs:min-w-[3.4rem] sm:min-w-[4.5rem] flex-col items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/60 px-1.5 xs:px-2 sm:px-3 py-1.5 sm:py-2 backdrop-blur-md shadow-[0_8px_25px_rgba(0,0,0,0.6)] ring-1 ring-white/5 transition-all duration-300 hover:border-gold/40 hover:bg-black/75">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
               />
-              <span className="font-mono text-lg font-bold leading-none tabular-nums text-paper drop-shadow-[0_2px_12px_rgba(255,250,241,0.35)] sm:text-2xl">
+              <span className="font-mono text-base xs:text-lg sm:text-2xl font-bold leading-none tabular-nums text-paper drop-shadow-[0_2px_12px_rgba(255,250,241,0.35)]">
                 {timeLeft
                   ? String(timeLeft[unit.key]).padStart(2, "0")
                   : "--"}
               </span>
-              <span className="mt-1 font-mono text-[6px] uppercase tracking-[0.2em] text-gold-bright/80 sm:text-[7px]">
+              <span className="mt-1 font-mono text-[6px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-gold-bright/80 sm:text-[7px]">
                 {unit.label}
               </span>
             </div>

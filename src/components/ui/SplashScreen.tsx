@@ -234,7 +234,7 @@ export function SplashScreen({ logoSrc }: SplashScreenProps) {
 
         {/* Slamming Letters */}
         <h1
-          className="font-hero text-[clamp(4.5rem,16vw,12.5rem)] font-black uppercase leading-none tracking-tighter"
+          className="font-hero text-[clamp(2.9rem,13.5vw,12.5rem)] font-black uppercase leading-none tracking-tighter"
           aria-label={word}
         >
           {word.split("").map((ch, i) => {
@@ -258,7 +258,7 @@ export function SplashScreen({ logoSrc }: SplashScreenProps) {
         <div
           ref={lineRef}
           aria-hidden
-          className="mt-6 h-px w-64 sm:w-88"
+          className="mt-5 sm:mt-6 h-px w-48 sm:w-80"
           style={{
             transformOrigin: "center",
             background:

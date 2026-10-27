@@ -1,4 +1,4 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anton, Archivo_Black, JetBrains_Mono, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
 
@@ -59,6 +59,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
   colorScheme: "light",
   themeColor: "#f4ecdf",
 };
