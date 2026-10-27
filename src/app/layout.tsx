@@ -1,5 +1,5 @@
-import type { Metadata, Viewport } from "next";
-import { Anton, Bricolage_Grotesque, JetBrains_Mono, Manrope } from "next/font/google";
+﻿import type { Metadata, Viewport } from "next";
+import { Anton, Archivo_Black, JetBrains_Mono, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
 
 import "./globals.css";
@@ -11,9 +11,10 @@ const anton = Anton({
   display: "swap",
 });
 
-const bricolage = Bricolage_Grotesque({
+const archivo = Archivo_Black({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-hero",
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -30,7 +31,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "COBOT-EX — Inter-College Technology Event",
+  title: "COBOT-EX â€” Inter-College Technology Event",
   description:
     "An open platform for students to showcase original, practical and impactful technology-based solutions to real-world problems. Build. Solve. Compete.",
   applicationName: "COBOT-EX",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     "Chennai",
   ],
   openGraph: {
-    title: "COBOT-EX — Inter-College Technology Event",
+    title: "COBOT-EX â€” Inter-College Technology Event",
     description:
       "Build. Solve. Compete. A project expo and hackathon for students solving real-world problems through technology.",
     type: "website",
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "COBOT-EX — Inter-College Technology Event",
+    title: "COBOT-EX â€” Inter-College Technology Event",
     description:
       "Build. Solve. Compete. A project expo and hackathon for students solving real-world problems through technology.",
   },
@@ -66,7 +67,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${bricolage.variable} ${manrope.variable} ${jetbrains.variable}`}
+      className={`${anton.variable} ${archivo.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
       <body className="min-h-svh bg-cream text-ink antialiased">
         <a
@@ -80,3 +81,4 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
+

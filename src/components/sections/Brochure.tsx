@@ -1,6 +1,7 @@
-import { QrCode, ScanLine } from "lucide-react";
+﻿import { QrCode, ScanLine } from "lucide-react";
 import Image from "next/image";
 
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HudCorners } from "@/components/ui/HudCorners";
 import { Reveal } from "@/components/ui/Reveal";
 import { ScrollText } from "@/components/ui/ScrollText";
@@ -18,7 +19,7 @@ export function Brochure({ qrSrc }: BrochureProps) {
   return (
     <section
       id="brochure"
-      className="relative scroll-mt-20 overflow-hidden border-b border-line bg-cream py-20 sm:py-24 lg:py-28"
+      className="relative scroll-mt-20 overflow-hidden border-b border-line bg-cream py-20 sm:py-24 lg:flex lg:h-[100svh] lg:items-center lg:py-12"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-grid-fine opacity-70 mask-radial" />
@@ -68,6 +69,20 @@ export function Brochure({ qrSrc }: BrochureProps) {
             <ScanFact label="Interface" value="Camera" />
             <ScanFact label="Link" value="Direct" />
             <ScanFact label="Status" value="Ready" />
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <ButtonLink
+              href={eventConfig.brochure.url}
+              variant="crimson"
+              size="md"
+              external
+            >
+              Open brochure
+            </ButtonLink>
+            <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-mist">
+              Or scan the QR code
+            </p>
           </div>
         </Reveal>
 
@@ -176,3 +191,4 @@ function ScanFact({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+

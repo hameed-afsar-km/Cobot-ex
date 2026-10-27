@@ -1,4 +1,4 @@
-import {
+﻿import {
   Code2,
   Cpu,
   ListOrdered,
@@ -37,7 +37,7 @@ export function Competitions() {
     <>
       <section
         id="expo"
-        className="relative scroll-mt-20 overflow-hidden bg-crimson py-20 text-paper sm:py-24 lg:py-28"
+        className="relative scroll-mt-20 overflow-hidden bg-crimson py-20 text-paper sm:py-24 lg:flex lg:h-[100svh] lg:items-center lg:py-12"
       >
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-grid-cream opacity-30" />
@@ -95,7 +95,7 @@ export function Competitions() {
                 {expo.cta}
               </ButtonLink>
               <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-paper/60">
-                Official Google Form · opens in a new tab
+                Official Google Form - opens in a new tab
               </p>
             </div>
 
@@ -120,7 +120,7 @@ export function Competitions() {
 
       <section
         id="hackathon"
-        className="relative scroll-mt-20 overflow-hidden bg-gold-soft py-20 text-ink sm:py-24 lg:py-28"
+        className="relative scroll-mt-20 overflow-hidden bg-gold-soft py-20 text-ink sm:py-24 lg:flex lg:h-[100svh] lg:items-center lg:py-12"
       >
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-grid opacity-50" />
@@ -181,7 +181,7 @@ export function Competitions() {
                 {hackathon.cta}
               </ButtonLink>
               <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-ink/55">
-                Official Google Form · opens in a new tab
+                Official Google Form - opens in a new tab
               </p>
             </div>
 
@@ -309,7 +309,7 @@ function ExpoRadar() {
 
       <div className="mt-3 flex items-center justify-between font-mono text-[7px] uppercase tracking-[0.18em] text-ink/45">
         <span>Radar / 01</span>
-        <span>Scan 360°</span>
+        <span>Scan 360Â°</span>
         <span className="text-crimson">Signal stable</span>
       </div>
     </div>
@@ -409,3 +409,4 @@ function HackathonTerminal() {
     </div>
   );
 }
+

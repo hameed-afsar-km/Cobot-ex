@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { SplashScreen } from "@/components/ui/SplashScreen";
 import { Ticker } from "@/components/ui/Ticker";
 import { Brochure } from "@/components/sections/Brochure";
 import { Competitions } from "@/components/sections/Competitions";
@@ -12,6 +13,7 @@ export default function Home() {
 
   return (
     <>
+      <SplashScreen logoSrc={assets.logo} />
       <Navbar logoSrc={assets.logo} />
       <main id="main">
         <Hero heroSrc={assets.hero} mobileHeroSrc={assets.heroMobile} />

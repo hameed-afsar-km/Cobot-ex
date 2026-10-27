@@ -27,7 +27,6 @@ export function BrandLogo({ src, size = "md", className }: BrandLogoProps) {
       className={cn(
         "relative flex shrink-0 items-center justify-center",
         sizeStyles[size],
-        !src && "border border-gold/30 bg-ink",
         className,
       )}
     >

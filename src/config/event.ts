@@ -1,6 +1,6 @@
 export const eventConfig = {
   name: "COBOT-EX",
-  clubName: "Technical Club",
+  clubName: "Crescent Club for Cobotics",
   category: "Inter-College Technology Event",
   tagline: "Build. Solve. Compete.",
   description:
@@ -39,17 +39,17 @@ export const eventConfig = {
     title: "Scan for brochure",
     description:
       "Explore the event details, competition information, and everything you need to prepare for COBOT-EX.",
-    url: null as string | null,
+    url: "https://drive.google.com/file/d/11Eerr73PE-OKUFr4RE6CQUCm1xB-__Ir/view?usp=sharing",
   },
   assets: {
     hero: {
       label: "COBOT-EX event hero",
       alt: "COBOT-EX inter-college technology event",
       candidates: [
+        "hero.png",
         "hero.jpeg",
         "hero.jpg",
         "hero.webp",
-        "hero.png",
         "hero.avif",
         "hero-image.jpeg",
         "hero-image.jpg",
@@ -61,10 +61,10 @@ export const eventConfig = {
       label: "COBOT-EX mobile event hero",
       alt: "COBOT-EX inter-college technology event",
       candidates: [
+        "mob.png",
         "mob.jpeg",
         "mob.jpg",
         "mob.webp",
-        "mob.png",
         "hero-mobile.jpeg",
         "hero-mobile.jpg",
         "hero-mobile.webp",
@@ -72,8 +72,8 @@ export const eventConfig = {
       ],
     },
     logo: {
-      label: "COBOT-EX logo",
-      alt: "COBOT-EX logo",
+      label: "Crescent Club for Cobotics logo",
+      alt: "Crescent Club for Cobotics logo",
       candidates: [
         "logo.png",
         "logo.svg",

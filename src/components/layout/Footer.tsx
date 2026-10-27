@@ -40,15 +40,17 @@ export function Footer({ logoSrc }: FooterProps) {
               className="inline-flex items-center gap-3"
               aria-label={`${eventConfig.name} home`}
             >
-              <span className="border border-gold/50 bg-ink p-0.5">
-                <BrandLogo src={logoSrc} size="lg" />
-              </span>
+              <BrandLogo
+                src={logoSrc}
+                size="lg"
+                className="size-14 transition-transform duration-300 hover:scale-105"
+              />
               <span className="flex flex-col">
                 <span className="font-display text-2xl leading-none tracking-[0.04em] text-paper">
                   {eventConfig.name}
                 </span>
                 <span className="mt-1.5 font-mono text-[8px] uppercase tracking-[0.2em] text-gold-bright">
-                  {eventConfig.category}
+                  Organized by {eventConfig.clubName}
                 </span>
               </span>
             </a>

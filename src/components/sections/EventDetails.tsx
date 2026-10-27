@@ -1,4 +1,4 @@
-import {
+﻿import {
   ArrowUpRight,
   CalendarClock,
   CalendarDays,
@@ -61,7 +61,7 @@ export function EventDetails() {
   return (
     <section
       id="details"
-      className="relative scroll-mt-20 overflow-hidden bg-sand py-20 sm:py-24 lg:py-28"
+      className="relative scroll-mt-20 overflow-hidden bg-sand py-20 sm:py-24 lg:flex lg:h-[100svh] lg:items-center lg:py-12"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-grid opacity-60 mask-fade-b" />
@@ -240,3 +240,4 @@ function FormLink({ href, label }: { href: string; label: string }) {
     </a>
   );
 }
+

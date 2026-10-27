@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { Countdown } from "@/components/ui/Countdown";
 import { eventConfig } from "@/config/event";
 
 type HeroProps = {
@@ -13,12 +14,6 @@ type HeroProps = {
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const titleLetters = eventConfig.name.split("").map((letter, index) => ({
-  letter,
-  index,
-  className: index >= 5 ? "text-gold-bright" : "text-paper",
-}));
-
 export function Hero({ heroSrc, mobileHeroSrc }: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -26,160 +21,120 @@ export function Hero({ heroSrc, mobileHeroSrc }: HeroProps) {
     shouldReduceMotion
       ? {}
       : {
-          initial: { opacity: 0, y: 16 },
+          initial: { opacity: 0, y: 20 },
           animate: { opacity: 1, y: 0 },
           transition: { duration: 0.7, delay, ease },
         };
 
+  const desktopBg = heroSrc || "/assets/hero.png";
+  const mobileBg = mobileHeroSrc || "/assets/mob.png";
+
   return (
     <section
       id="top"
-      className="relative isolate min-h-[100svh] overflow-hidden bg-night text-paper"
+      className="relative isolate flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-night text-paper"
     >
-      {mobileHeroSrc ? (
+      {/* Background Images: mob.png for mobile/Android, hero.png for desktop */}
+      <div className="absolute inset-0 z-0">
         <Image
-          src={mobileHeroSrc}
+          src={mobileBg}
           alt={eventConfig.assets.heroMobile.alt}
           fill
           priority
           sizes="100vw"
           className="object-cover object-center md:hidden"
         />
-      ) : null}
-
-      {heroSrc ? (
         <Image
-          src={heroSrc}
+          src={desktopBg}
           alt={eventConfig.assets.hero.alt}
           fill
           priority
           sizes="100vw"
           className="hidden object-cover object-center md:block"
         />
-      ) : (
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_55%_40%,#b5141b,#5e0a0e_60%,#171210)]" />
-      )}
+      </div>
 
+      {/* Atmospheric Contrast Gradients */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-night/40 to-transparent"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(10,5,4,0.65)_75%,rgba(10,5,4,0.92)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,rgba(16,11,9,0.86)_0%,rgba(16,11,9,0.38)_52%,transparent_100%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-40 bg-gradient-to-b from-black/85 via-black/40 to-transparent"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-80 bg-gradient-to-t from-night via-night/85 to-transparent"
       />
 
-      <div className="container-page relative z-10 flex min-h-[100svh] flex-col items-center justify-end pb-12 pt-32 text-center sm:pb-16">
-        <motion.p
-          {...fadeUp(0.05)}
-          className="flex items-center gap-2.5 font-mono text-[8px] font-medium uppercase tracking-[0.22em] text-paper/75 sm:text-[9px]"
+      {/* Clean Minimal Hero Content */}
+      <div className="container-page relative z-10 flex flex-col items-center justify-center text-center px-4 pt-32 pb-10 sm:pt-40 sm:pb-14 translate-y-6 sm:translate-y-10">
+        {/* 1. Event Name */}
+        <motion.h1
+          {...fadeUp(0.15)}
+          className="font-hero text-[clamp(3.5rem,11vw,9.5rem)] font-black uppercase leading-[0.88] tracking-tight text-shadow-ink"
         >
-          <span
-            aria-hidden="true"
-            className="size-1.5 animate-blink rounded-full bg-gold-bright"
-          />
-          {eventConfig.category}
-        </motion.p>
-
-        <h1 className="mt-5 font-hero text-[clamp(2.9rem,13.5vw,9rem)] font-extrabold leading-[0.88] tracking-[-0.06em] text-paper text-shadow-ink">
-          <span className="sr-only">
-            {eventConfig.name} — {eventConfig.category}
+          <span className="inline-block bg-gradient-to-b from-white via-paper to-white/75 bg-clip-text text-transparent drop-shadow-[0_10px_35px_rgba(0,0,0,0.9)]">
+            COBOT
           </span>
-          <span
-            aria-hidden="true"
-            className="inline-flex items-baseline justify-center whitespace-nowrap"
-          >
-            {titleLetters.map(({ letter, index, className }) => (
-              <span
-                key={`${letter}-${index}`}
-                className="inline-flex overflow-hidden pb-[0.1em] -mb-[0.1em]"
-              >
-                <motion.span
-                  initial={
-                    shouldReduceMotion ? false : { y: "115%", opacity: 0 }
-                  }
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.16 + index * 0.045,
-                    ease,
-                  }}
-                  className={`inline-block ${className}`}
-                >
-                  {letter}
-                </motion.span>
-              </span>
-            ))}
+          <span className="inline-block bg-gradient-to-b from-gold-bright via-gold to-crimson-bright bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(232,203,133,0.5)]">
+            -EX
           </span>
-        </h1>
+        </motion.h1>
 
-        <motion.span
-          aria-hidden="true"
-          initial={shouldReduceMotion ? false : { scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 0.9, delay: 0.7, ease }}
-          className="mt-6 block h-px w-28 origin-center bg-gold-bright/80"
-        />
-
+        {/* 2. Tagline */}
         <motion.p
-          {...fadeUp(0.34)}
-          className="mt-5 font-hero text-lg font-medium tracking-[-0.01em] text-gold-bright sm:text-xl"
+          {...fadeUp(0.28)}
+          className="mt-4 font-mono text-xs uppercase tracking-[0.26em] text-gold-bright sm:text-sm font-semibold"
         >
           {eventConfig.tagline}
         </motion.p>
 
+        {/* 3. 3 CTAs */}
         <motion.div
-          {...fadeUp(0.42)}
-          className="mt-7 flex w-full max-w-xs flex-col items-stretch gap-3 xs:max-w-none xs:flex-row xs:items-center xs:justify-center"
+          {...fadeUp(0.4)}
+          className="mt-6 sm:mt-7 flex w-full max-w-sm flex-col items-center justify-center gap-2.5 sm:max-w-none sm:w-auto sm:flex-row sm:gap-4"
         >
+          {/* Mobile: Expo & Hackathon in the same row | Desktop: inline items */}
+          <div className="grid grid-cols-2 gap-2.5 w-full sm:flex sm:w-auto sm:items-center sm:gap-4">
+            <ButtonLink
+              href="#expo"
+              variant="crimson"
+              size="lg"
+              icon
+              className="w-full rounded-full shadow-[0_0_35px_rgba(181,20,27,0.5)] hover:shadow-[0_0_45px_rgba(221,47,53,0.7)] px-3 sm:px-6"
+            >
+              <span className="sm:hidden">Expo</span>
+              <span className="hidden sm:inline">Register for Expo</span>
+            </ButtonLink>
+
+            <ButtonLink
+              href="#hackathon"
+              variant="gold"
+              size="lg"
+              icon
+              className="w-full rounded-full shadow-[0_0_30px_rgba(201,164,92,0.35)] hover:shadow-[0_0_40px_rgba(232,203,133,0.5)] px-3 sm:px-6"
+            >
+              <span className="sm:hidden">Hackathon</span>
+              <span className="hidden sm:inline">Join Hackathon</span>
+            </ButtonLink>
+          </div>
+
           <ButtonLink
-            href="#expo"
-            variant="crimson"
-            icon
-            className="w-full rounded-full xs:w-auto"
-          >
-            Register now
-          </ButtonLink>
-          <ButtonLink
-            href="#details"
+            href="#brochure"
             variant="light"
-            className="w-full rounded-full xs:w-auto"
+            size="lg"
+            className="w-full sm:w-auto rounded-full border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/15"
           >
-            Event details
+            Event Brochure
           </ButtonLink>
         </motion.div>
 
-        <motion.p
-          {...fadeUp(0.5)}
-          className="mt-7 font-mono text-[8px] uppercase tracking-[0.16em] text-paper/65 sm:text-[9px]"
-        >
-          {eventConfig.date.displayShort}
-          <span aria-hidden="true" className="mx-2.5 text-gold-bright/70">
-            /
-          </span>
-          {eventConfig.venue.name}
-        </motion.p>
-
-        <motion.a
-          {...fadeUp(0.6)}
-          href="#expo"
-          className="group mt-7 inline-flex flex-col items-center gap-2 font-mono text-[7px] uppercase tracking-[0.22em] text-paper/40 transition-colors hover:text-gold-bright"
-          aria-label="Scroll to explore the event"
-        >
-          <span>Scroll</span>
-          <span className="relative h-8 w-px overflow-hidden bg-paper/20">
-            <motion.span
-              aria-hidden="true"
-              animate={shouldReduceMotion ? undefined : { y: [-12, 32] }}
-              transition={{
-                duration: 1.8,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              }}
-              className="absolute inset-x-0 top-0 h-3 bg-gold-bright"
-            />
-          </span>
-        </motion.a>
+        {/* 4. Countdown, with date above */}
+        <motion.div {...fadeUp(0.52)} className="mt-7 sm:mt-10">
+          <Countdown showDate />
+        </motion.div>
       </div>
     </section>
   );
